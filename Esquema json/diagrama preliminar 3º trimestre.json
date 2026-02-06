@@ -1,0 +1,121 @@
+{
+  "formas": [
+    {
+      "id": "forma-1",
+      "tipo": "rectangle",
+      "left": "393px",
+      "top": "373px",
+      "width": "",
+      "height": "",
+      "texto": "Inicio"
+    },
+    {
+      "id": "forma-2",
+      "tipo": "rectangle",
+      "left": "573px",
+      "top": "487px",
+      "width": "",
+      "height": "",
+      "texto": "Menu"
+    },
+    {
+      "id": "forma-3",
+      "tipo": "rectangle",
+      "left": "568px",
+      "top": "260px",
+      "width": "",
+      "height": "",
+      "texto": "Pagina de reserva"
+    },
+    {
+      "id": "forma-4",
+      "tipo": "rectangle",
+      "left": "837px",
+      "top": "259px",
+      "width": "",
+      "height": "",
+      "texto": "Tabla de reservas"
+    },
+    {
+      "id": "forma-5",
+      "tipo": "rectangle",
+      "left": "852px",
+      "top": "481px",
+      "width": "",
+      "height": "",
+      "texto": "Tabla de Platos"
+    }
+  ],
+  "flechas": [
+    {
+      "desde": {
+        "shapeId": "forma-1",
+        "propId": null,
+        "side": null
+      },
+      "hasta": {
+        "shapeId": "forma-2",
+        "propId": null,
+        "side": null
+      },
+      "tipo": "doble",
+      "estilo": "straight"
+    },
+    {
+      "desde": {
+        "shapeId": "forma-1",
+        "propId": null,
+        "side": null
+      },
+      "hasta": {
+        "shapeId": "forma-3",
+        "propId": null,
+        "side": null
+      },
+      "tipo": "doble",
+      "estilo": "straight"
+    },
+    {
+      "desde": {
+        "shapeId": "forma-3",
+        "propId": null,
+        "side": null
+      },
+      "hasta": {
+        "shapeId": "forma-4",
+        "propId": null,
+        "side": null
+      },
+      "tipo": "simple",
+      "estilo": "straight"
+    },
+    {
+      "desde": {
+        "shapeId": "forma-5",
+        "propId": null,
+        "side": null
+      },
+      "hasta": {
+        "shapeId": "forma-4",
+        "propId": null,
+        "side": null
+      },
+      "tipo": "simple",
+      "estilo": "straight"
+    },
+    {
+      "desde": {
+        "shapeId": "forma-5",
+        "propId": null,
+        "side": null
+      },
+      "hasta": {
+        "shapeId": "forma-2",
+        "propId": null,
+        "side": null
+      },
+      "tipo": "simple",
+      "estilo": "straight"
+    }
+  ]
+}
