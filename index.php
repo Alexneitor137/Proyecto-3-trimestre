@@ -114,9 +114,9 @@
     <div class="carousel">
     <h2>Platos Destacados</h2>
     <div class="carousel-container">
-        <img class="slide active" src="../imgs/plato1.jpg" alt="Plato 1">
-        <img class="slide" src="../imgs/plato2.jpg" alt="Plato 2">
-        <img class="slide" src="../imgs/plato3.jpg" alt="Plato 3">
+        <img class="slide active" src="/imgs/plato1.jpg" alt="Plato 1">
+        <img class="slide" src="/imgs/plato2.jpg" alt="Plato 2">
+        <img class="slide" src="/imgs/plato3.jpg" alt="Plato 3">
     </div>
     <div class="carousel-buttons">
         <button onclick="prevSlide()">❮</button>
