@@ -1,0 +1,241 @@
+/* Estilos generales de tu index original */
+body {
+    font-family: 'Segoe UI', Arial, sans-serif; 
+    margin: 0;
+    padding: 0;
+    /* Un degradado suave gris/blanco que le da un toque premium */
+    background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%); 
+    color: #333;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+}
+
+header img {
+    height: 40px;
+    margin-right: 10px;
+}
+
+header h1 {
+    margin: 0;
+}
+
+.chef {
+    display: flex;
+    justify-content: center;
+    margin: 30px auto;
+    width: 80%; /* Para que no ocupe toda la pantalla en monitores gigantes */
+    max-width: 1000px;
+    height: 400px; /* Altura fija */
+    border-radius: 15px; /* Bordes redondeados */
+    overflow: hidden; /* Esconde lo que se salga de la caja */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1); /* Sombra suave */
+}
+
+.chef img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Esto evita que el chef se deforme o se vea diminuto */
+}
+
+.carousel {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.carousel-container {
+    position: relative;
+    width: 80%;
+    max-width: 800px; /* Ancho máximo para la comida */
+    height: 450px; /* Altura fija para que la página no salte al cambiar de foto */
+    margin: auto;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+
+.slide {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Todas las fotos de comida se verán perfectas e iguales en tamaño */
+    display: none;
+}
+
+.active {
+    display: block;
+}
+
+.carousel-buttons {
+    margin-top: 10px;
+}
+
+.carousel-buttons button {
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.carousel-buttons button:hover {
+    background-color: #555;
+}
+
+.menu-button {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.menu-button a {
+    background-color: #333;
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+.menu-button a:hover {
+    background-color: #555;
+}
+
+footer {
+    background-color: #222;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+/* =========================================
+   NUEVOS ESTILOS PARA EL MENÚ (Tarjetas)
+   ========================================= */
+.menu-grid {
+    display: grid;
+    /* Esto hace que las tarjetas se adapten solas: en móviles sale 1, en PC salen varias */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.menu-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.menu-card:hover {
+    transform: translateY(-5px); /* Efecto de saltito al pasar el ratón */
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+
+.menu-card h2 {
+    color: #333;
+    margin-top: 0;
+}
+
+.menu-card .precio {
+    font-size: 1.5em;
+    color: #e67e22; /* Un color naranja apetitoso para el precio */
+    font-weight: bold;
+}
+/* =========================================
+   ESTILOS PARA EL FORMULARIO DE RESERVAS
+   ========================================= */
+.reserva-form {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.reserva-form label {
+    font-weight: bold;
+    color: #333;
+}
+
+.reserva-form input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    font-family: inherit;
+}
+
+.btn-reservar {
+    background-color: #e67e22; /* Color naranja que abre el apetito */
+    color: white;
+    border: none;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+.btn-reservar:hover {
+    background-color: #d35400;
+}
+/* =========================================
+   ESTILOS PARA EL PANEL DE ADMINISTRACIÓN
+   ========================================= */
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 40px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    overflow: hidden; /* Mantiene los bordes redondeados */
+}
+
+.admin-table th, .admin-table td {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+.admin-table th {
+    background-color: #333;
+    color: white;
+    font-weight: bold;
+}
+
+.admin-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Estilos para el formulario pequeño del admin */
+.admin-form {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    margin-bottom: 40px;
+}
+
+.admin-form input, .admin-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Para que no se salgan del contenedor */
+}
