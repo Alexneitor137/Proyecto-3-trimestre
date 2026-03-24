@@ -6,6 +6,7 @@ $pass = "Chefika2026!";
 $dbname = "chefika_db";
 
 $conn = new mysqli($host, $user, $pass, $dbname);
+$conn->set_charset("utf8mb4");
 
 if ($conn->connect_error) {
     die("Error de conexión: " . $conn->connect_error);
