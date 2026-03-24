@@ -1,4 +1,5 @@
 <?php include 'header.php'; ?>
+
 <main>
     <div style="text-align: center; padding: 60px 20px; background-color: white; border-bottom: 1px solid #eaeaea; box-shadow: 0 4px 10px rgba(0,0,0,0.05); margin-bottom: 40px;">
         <h1 style="font-size: 2.8em; color: #333; margin-bottom: 15px;"><?php echo __('hero_titulo'); ?> <span style="color: #e67e22;">Chefika</span></h1>
@@ -9,15 +10,20 @@
     </div>
     
     <div class="chef">
-        <img src="imgs/chef.jpg" alt="Nuestro Chef trabajando">
+        <img src="imgs/chef.jpg" alt="Chef">
     </div>
     
     <div class="carousel">
         <h2 style="font-size: 2em; color: #333; margin-bottom: 20px;"><?php echo __('titulo_platos'); ?></h2>
+        
+        <div id="plato-nombre" style="font-size: 1.5em; font-weight: bold; color: #e67e22; margin-bottom: 15px; height: 1.6em;">
+            Paella de la casa
+        </div>
+
         <div class="carousel-container">
-            <img class="slide active" src="imgs/plato1.jpg" alt="Paella de la casa">
-            <img class="slide" src="imgs/plato2.jpg" alt="Hamburguesa Gourmet">
-            <img class="slide" src="imgs/plato3.jpg" alt="Tarta de queso casera">
+            <img class="slide active" src="imgs/plato1.jpg" alt="Paella de la casa" data-nombre="Paella de la casa">
+            <img class="slide" src="imgs/plato2.jpg" alt="Hamburguesa Gourmet" data-nombre="Hamburguesa Gourmet">
+            <img class="slide" src="imgs/plato3.jpg" alt="Tarta de queso casera" data-nombre="Tarta de queso casera">
         </div>
         <div class="carousel-buttons">
             <button onclick="prevSlide()">❮</button>
@@ -27,10 +33,13 @@
         <script>
             let index = 0;
             const slides = document.querySelectorAll(".slide");
+            const nombreDisplay = document.getElementById("plato-nombre");
 
             function showSlide(i) {
                 slides.forEach(slide => slide.classList.remove("active"));
                 slides[i].classList.add("active");
+                // Actualizamos el texto con el atributo alt o data-nombre
+                nombreDisplay.innerText = slides[i].alt;
             }
 
             function nextSlide() {
