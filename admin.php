@@ -10,31 +10,35 @@ require_once 'conexion.php';
 // --- 1. LÓGICA PARA ELIMINAR UN PLATO ---
 if (isset($_POST['eliminar_plato'])) {
     $id_borrar = $_POST['id_plato'];
-    
-    // Preparamos la consulta para borrar
     $stmt_del = $conn->prepare("DELETE FROM platos WHERE id = ?");
     $stmt_del->bind_param("i", $id_borrar);
     $stmt_del->execute();
     $stmt_del->close();
-    
     header("Location: admin.php");
     exit();
 }
 
-// --- 2. LÓGICA PARA AÑADIR UN PLATO CON IMAGEN ---
+// --- 2. LÓGICA PARA ELIMINAR UNA RESERVA ---
+if (isset($_POST['eliminar_reserva'])) {
+    $id_reserva = $_POST['id_reserva'];
+    $stmt_del_res = $conn->prepare("DELETE FROM reservas WHERE id = ?");
+    $stmt_del_res->bind_param("i", $id_reserva);
+    $stmt_del_res->execute();
+    $stmt_del_res->close();
+    header("Location: admin.php");
+    exit();
+}
+
+// --- 3. LÓGICA PARA AÑADIR UN PLATO CON IMAGEN ---
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_plato'])) {
     $nombre = $_POST['nombre_plato'];
     $desc = $_POST['desc_plato'];
     $precio = $_POST['precio_plato'];
-    $nombre_imagen = "default.jpg"; // Imagen por defecto si no suben ninguna
+    $nombre_imagen = "default.jpg"; 
 
-    // Comprobamos si se ha subido un archivo y si no hay errores
     if (isset($_FILES['imagen_plato']) && $_FILES['imagen_plato']['error'] == 0) {
-        // Generamos un nombre único para que no se sobrescriban fotos con el mismo nombre
         $nombre_imagen = time() . "_" . basename($_FILES["imagen_plato"]["name"]);
         $ruta_destino = "imgs/" . $nombre_imagen;
-
-        // Movemos el archivo de la memoria temporal a tu carpeta imgs/
         move_uploaded_file($_FILES["imagen_plato"]["tmp_name"], $ruta_destino);
     }
 
@@ -42,12 +46,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_plato'])) {
     $stmt->bind_param("ssds", $nombre, $desc, $precio, $nombre_imagen);
     $stmt->execute();
     $stmt->close();
-    
     header("Location: admin.php");
     exit();
 }
 
-// --- 3. OBTENER DATOS PARA LAS TABLAS ---
+// --- 4. OBTENER DATOS PARA LAS TABLAS ---
 $resultado_reservas = $conn->query("SELECT * FROM reservas ORDER BY fecha DESC, hora DESC");
 $resultado_platos = $conn->query("SELECT * FROM platos");
 
@@ -67,18 +70,41 @@ include 'header.php';
             <th>ID</th>
             <th>Cliente</th>
             <th>Teléfono</th>
+            <th>Email</th>
             <th>Fecha</th>
             <th>Hora</th>
             <th>Personas</th>
+            <th>Acciones</th>
         </tr>
         <?php while($reserva = $resultado_reservas->fetch_assoc()): ?>
         <tr>
             <td><?php echo $reserva['id']; ?></td>
             <td><?php echo htmlspecialchars($reserva['nombre_cliente']); ?></td>
             <td><?php echo htmlspecialchars($reserva['telefono']); ?></td>
-            <td><?php echo $reserva['fecha']; ?></td>
-            <td><?php echo $reserva['hora']; ?></td>
+            
+            <td>
+                <?php 
+                if (!empty($reserva['email'])) {
+                    echo htmlspecialchars($reserva['email']);
+                } else {
+                    echo "<span style='color: #999; font-style: italic;'>No proporcionado</span>";
+                }
+                ?>
+            </td>
+            
+            <td><?php echo date('d/m/Y', strtotime($reserva['fecha'])); ?></td>
+            
+            <td><?php echo date('H:i', strtotime($reserva['hora'])); ?></td>
+            
             <td><?php echo $reserva['num_personas']; ?></td>
+            <td>
+                <a href="editar_reserva.php?id=<?php echo $reserva['id']; ?>" class="btn-accion btn-editar">Editar</a>
+
+                <form method="POST" action="admin.php" style="display: inline-block; margin: 0;" onsubmit="return confirm('¿Seguro que quieres borrar esta reserva?');">
+                    <input type="hidden" name="id_reserva" value="<?php echo $reserva['id']; ?>">
+                    <button type="submit" name="eliminar_reserva" class="btn-accion btn-eliminar">Eliminar</button>
+                </form>
+            </td>
         </tr>
         <?php endwhile; ?>
     </table>

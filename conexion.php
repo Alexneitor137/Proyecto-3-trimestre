@@ -1,8 +1,8 @@
 <?php
 // Usaremos la conexión de XAMPP para que puedas trabajar en local
 $host = "localhost";
-$user = "root";
-$pass = "";
+$user = "chefika";          
+$pass = "Chefika2026!";     
 $dbname = "chefika_db";
 
 $conn = new mysqli($host, $user, $pass, $dbname);

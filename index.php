@@ -1,21 +1,23 @@
 <?php include 'header.php'; ?>
-
 <main>
-    <div>
-        <h1 style="text-align: center; margin-top: 50px;">Bienvenido a nuestro Restaurante</h1>
-        <p style="text-align: center; font-size: 1.2em; color: #555;">¡Disfruta de la mejor comida preparada por nuestros chefs expertos!</p>
+    <div style="text-align: center; padding: 60px 20px; background-color: white; border-bottom: 1px solid #eaeaea; box-shadow: 0 4px 10px rgba(0,0,0,0.05); margin-bottom: 40px;">
+        <h1 style="font-size: 2.8em; color: #333; margin-bottom: 15px;"><?php echo __('hero_titulo'); ?> <span style="color: #e67e22;">Chefika</span></h1>
+        <p style="font-size: 1.2em; color: #666; max-width: 700px; margin: 0 auto 30px auto; line-height: 1.6;">
+            <?php echo __('hero_desc'); ?>
+        </p>
+        <a href="reserva.php" class="btn-reservar" style="text-decoration: none; display: inline-block; padding: 15px 40px; font-size: 1.1em; border-radius: 30px;"><?php echo __('btn_reserva'); ?></a>
     </div>
     
     <div class="chef">
-        <img src="imgs/chef.jpg" alt="chef" style="max-width: 100%; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+        <img src="imgs/chef.jpg" alt="Nuestro Chef trabajando">
     </div>
     
     <div class="carousel">
-        <h2>Platos Destacados</h2>
+        <h2 style="font-size: 2em; color: #333; margin-bottom: 20px;"><?php echo __('titulo_platos'); ?></h2>
         <div class="carousel-container">
-            <img class="slide active" src="imgs/plato1.jpg" alt="Plato 1">
-            <img class="slide" src="imgs/plato2.jpg" alt="Plato 2">
-            <img class="slide" src="imgs/plato3.jpg" alt="Plato 3">
+            <img class="slide active" src="imgs/plato1.jpg" alt="Paella de la casa">
+            <img class="slide" src="imgs/plato2.jpg" alt="Hamburguesa Gourmet">
+            <img class="slide" src="imgs/plato3.jpg" alt="Tarta de queso casera">
         </div>
         <div class="carousel-buttons">
             <button onclick="prevSlide()">❮</button>
@@ -23,7 +25,6 @@
         </div>
         
         <script>
-            // Mantenemos tu JavaScript intacto porque funcionaba genial
             let index = 0;
             const slides = document.querySelectorAll(".slide");
 
@@ -41,10 +42,12 @@
                 index = (index - 1 + slides.length) % slides.length;
                 showSlide(index);
             }
+
+            setInterval(nextSlide, 4000); 
         </script>
         
-        <div class="menu-button">
-            <a href="menu.php">Ver Nuestro Menú</a>
+        <div class="menu-button" style="margin-top: 50px; margin-bottom: 50px;">
+            <a href="menu.php" style="border-radius: 30px; font-weight: bold; background-color: #333; padding: 15px 30px; color: white; text-decoration: none;"><?php echo __('btn_ver_menu'); ?></a>
         </div>
     </div>
 </main>

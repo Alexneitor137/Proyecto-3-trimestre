@@ -239,3 +239,9 @@ footer {
     border-radius: 4px;
     box-sizing: border-box; /* Para que no se salgan del contenedor */
 }
+/* Estilos para igualar los botones de acción del panel admin */
+.btn-accion { display: inline-block; padding: 8px 12px; border-radius: 4px; text-decoration: none; color: white; font-weight: bold; border: none; cursor: pointer; font-size: 14px; text-align: center; box-sizing: border-box; vertical-align: middle; margin: 0 2px; }
+.btn-editar { background-color: #007bff; }
+.btn-editar:hover { background-color: #0056b3; }
+.btn-eliminar { background-color: #dc3545; }
+.btn-eliminar:hover { background-color: #a71d2a; }

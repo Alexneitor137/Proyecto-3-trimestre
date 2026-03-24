@@ -44,9 +44,9 @@ include 'header.php';
         <label for="telefono">Teléfono:</label>
         <input type="tel" id="telefono" name="telefono" required placeholder="Ej: 600123456">
 
-        <label for="email">Email (Opcional):</label>
-        <input type="email" id="email" name="email" placeholder="Ej: juan@email.com">
-
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required placeholder="Ej: juan@email.com">
+        
         <label for="fecha">Fecha:</label>
         <input type="date" id="fecha" name="fecha" required>
 
