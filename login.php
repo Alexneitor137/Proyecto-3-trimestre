@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $usuario = $_POST['usuario'];
     $password = $_POST['password'];
 
-    // Aquí defines tu usuario y contraseña. ¡Cámbialos por los que prefieras!
+    // Aquí defines tu usuario y contraseña.
     if ($usuario === 'admin' && $password === 'proyecto2026') {
         // Credenciales correctas: Creamos la sesión
         $_SESSION['admin_logeado'] = true;
